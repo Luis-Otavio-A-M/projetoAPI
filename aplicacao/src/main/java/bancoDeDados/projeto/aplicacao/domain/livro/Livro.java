@@ -20,6 +20,13 @@ public class Livro {
 
 	public Livro() {}
 	
+	public Livro(LivroRequest livro) {
+		this.id_livro = livro.id_livro();
+		this.nome = livro.nome();
+		this.disponivel = livro.disponivel();
+		this.autor = livro.autor();
+	}
+	
 	public Livro(String id_livro, String nome, Boolean disponivel, String autor) {
 		this.id_livro = id_livro;
 		this.nome = nome;
