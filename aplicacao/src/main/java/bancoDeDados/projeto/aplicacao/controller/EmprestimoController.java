@@ -44,12 +44,13 @@ public class EmprestimoController {
 		Optional<Emprestimo> emprestimoParaAtualizar = repository.findById(request.id_emprestimo());
 		
 		if(emprestimoParaAtualizar.isPresent()) {
-			System.out.println("teste");
 			Emprestimo emprestimoAtualizado = emprestimoParaAtualizar.get();
 			emprestimoAtualizado.setId_livro(request.id_livro());
 			emprestimoAtualizado.setMatricula_aluno(request.matricula_aluno());
 			emprestimoAtualizado.setData_do_emprestimo(request.data_do_emprestimo());
 			emprestimoAtualizado.setData_do_vencimento(request.data_do_vencimento());
+			System.out.println(emprestimoAtualizado);
+			repository.save(emprestimoAtualizado);
 		}
 		return ResponseEntity.ok(emprestimoParaAtualizar);
 	}

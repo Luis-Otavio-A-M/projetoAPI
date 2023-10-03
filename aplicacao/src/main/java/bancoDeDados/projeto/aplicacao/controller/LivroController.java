@@ -48,7 +48,7 @@ public class LivroController {
 			livroAtualizado.setNome(request.nome());
 			livroAtualizado.setDisponivel(request.disponivel());
 			livroAtualizado.setAutor(request.autor());
-			
+			repository.save(livroAtualizado);
 		}
 		return ResponseEntity.ok(livroParaAtualizar);
 	}

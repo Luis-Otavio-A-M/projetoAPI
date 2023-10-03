@@ -96,6 +96,13 @@ public class Emprestimo {
 		Emprestimo other = (Emprestimo) obj;
 		return Objects.equals(id_emprestimo, other.id_emprestimo);
 	}
+
+	@Override
+	public String toString() {
+		return "Emprestimo [id_emprestimo=" + id_emprestimo + ", matricula_aluno=" + matricula_aluno + ", id_livro="
+				+ id_livro + ", data_do_emprestimo=" + data_do_emprestimo + ", data_do_vencimento=" + data_do_vencimento
+				+ "]";
+	}
 	
 	
 }
