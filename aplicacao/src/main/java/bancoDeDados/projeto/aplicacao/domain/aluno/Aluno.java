@@ -25,7 +25,7 @@ public class Aluno {
 		this.idade = idade;
 	}
 
-	public Aluno(RequestAluno aluno) {
+	public Aluno(AlunoRequest aluno) {
 		this.matricula = aluno.matricula();
 		this.nome = aluno.nome();
 		this.curso = aluno.curso();

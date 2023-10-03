@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import bancoDeDados.projeto.aplicacao.domain.aluno.Aluno;
 import bancoDeDados.projeto.aplicacao.domain.aluno.AlunoRepository;
-import bancoDeDados.projeto.aplicacao.domain.aluno.RequestAluno;
+import bancoDeDados.projeto.aplicacao.domain.aluno.AlunoRequest;
 import jakarta.transaction.Transactional;
 
 @RestController
@@ -31,7 +31,7 @@ public class AlunoController {
 	}
 	
 	@PostMapping
-	public ResponseEntity cadastrarAluno(@RequestBody RequestAluno request) {
+	public ResponseEntity cadastrarAluno(@RequestBody AlunoRequest request) {
 		Aluno novoAluno = new Aluno(request);
 		repository.save(novoAluno);
 		return ResponseEntity.ok(novoAluno);
@@ -39,7 +39,7 @@ public class AlunoController {
 	
 	@PutMapping
 	@Transactional
-	public ResponseEntity atualizarAluno(@RequestBody RequestAluno request) {
+	public ResponseEntity atualizarAluno(@RequestBody AlunoRequest request) {
 		Optional<Aluno> alunoParaAtualizar = repository.findById(request.matricula());
 		if(alunoParaAtualizar.isPresent()) {
 			Aluno alunoAtualizado = alunoParaAtualizar.get();
