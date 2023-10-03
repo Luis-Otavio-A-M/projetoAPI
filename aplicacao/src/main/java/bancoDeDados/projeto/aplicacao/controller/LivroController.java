@@ -17,6 +17,7 @@ import bancoDeDados.projeto.aplicacao.domain.aluno.Aluno;
 import bancoDeDados.projeto.aplicacao.domain.livro.Livro;
 import bancoDeDados.projeto.aplicacao.domain.livro.LivroRepository;
 import bancoDeDados.projeto.aplicacao.domain.livro.LivroRequest;
+import jakarta.transaction.Transactional;
 
 @RestController
 @RequestMapping("/livro")
@@ -39,6 +40,7 @@ public class LivroController {
 	}
 	
 	@PutMapping
+	@Transactional
 	public ResponseEntity atualizarLivro(@RequestBody LivroRequest request) {
 		Optional<Livro> livroParaAtualizar = repository.findById(request.id_livro());
 		

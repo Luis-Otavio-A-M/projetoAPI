@@ -18,6 +18,7 @@ import bancoDeDados.projeto.aplicacao.domain.emprestimo.EmprestimoRepository;
 import bancoDeDados.projeto.aplicacao.domain.emprestimo.EmprestimoRequest;
 import bancoDeDados.projeto.aplicacao.domain.livro.Livro;
 import bancoDeDados.projeto.aplicacao.domain.livro.LivroRequest;
+import jakarta.transaction.Transactional;
 
 @RestController
 @RequestMapping("/emprestimo")
@@ -40,7 +41,9 @@ public class EmprestimoController {
 	}
 	
 	@PutMapping
+	@Transactional
 	public ResponseEntity atualizarEmprestimo(@RequestBody EmprestimoRequest request) {
+		System.out.println(request);
 		Optional<Emprestimo> emprestimoParaAtualizar = repository.findById(request.id_emprestimo());
 		
 		if(emprestimoParaAtualizar.isPresent()) {
@@ -49,7 +52,6 @@ public class EmprestimoController {
 			emprestimoAtualizado.setMatricula_aluno(request.matricula_aluno());
 			emprestimoAtualizado.setData_do_emprestimo(request.data_do_emprestimo());
 			emprestimoAtualizado.setData_do_vencimento(request.data_do_vencimento());
-			System.out.println(emprestimoAtualizado);
 			repository.save(emprestimoAtualizado);
 		}
 		return ResponseEntity.ok(emprestimoParaAtualizar);

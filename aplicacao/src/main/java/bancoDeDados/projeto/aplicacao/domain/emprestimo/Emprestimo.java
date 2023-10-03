@@ -1,6 +1,7 @@
 package bancoDeDados.projeto.aplicacao.domain.emprestimo;
 
 import java.sql.Date;
+import java.time.LocalDate;
 import java.util.Objects;
 
 import jakarta.persistence.Entity;
@@ -17,9 +18,9 @@ public class Emprestimo {
 	
 	private String id_livro;
 	
-	private Date data_do_emprestimo;
+	private LocalDate data_do_emprestimo;
 	
-	private Date data_do_vencimento;
+	private LocalDate data_do_vencimento;
 
 	public Emprestimo() {}
 	
@@ -31,8 +32,8 @@ public class Emprestimo {
 		this.data_do_vencimento = emprestimo.data_do_vencimento();
 	}
 	
-	public Emprestimo(String id_emprestimo, String matricula_aluno, String id_livro, Date data_do_emprestimo,
-			Date data_do_vencimento) {
+	public Emprestimo(String id_emprestimo, String matricula_aluno, String id_livro, LocalDate data_do_emprestimo,
+			LocalDate data_do_vencimento) {
 		this.id_emprestimo = id_emprestimo;
 		this.matricula_aluno = matricula_aluno;
 		this.id_livro = id_livro;
@@ -64,19 +65,19 @@ public class Emprestimo {
 		this.id_livro = id_livro;
 	}
 
-	public Date getData_do_emprestimo() {
+	public LocalDate getData_do_emprestimo() {
 		return data_do_emprestimo;
 	}
 
-	public void setData_do_emprestimo(Date data_do_emprestimo) {
+	public void setData_do_emprestimo(LocalDate data_do_emprestimo) {
 		this.data_do_emprestimo = data_do_emprestimo;
 	}
 
-	public Date getData_do_vencimento() {
+	public LocalDate getData_do_vencimento() {
 		return data_do_vencimento;
 	}
 
-	public void setData_do_vencimento(Date data_do_vencimento) {
+	public void setData_do_vencimento(LocalDate data_do_vencimento) {
 		this.data_do_vencimento = data_do_vencimento;
 	}
 
